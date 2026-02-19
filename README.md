@@ -1,4 +1,4 @@
-# SimpleHttpServer (Modernized Java 17 Edition)
+# SimpleHttpServer
 
 An educational HTTP server that demonstrates, in plain Java, how a server handles:
 
