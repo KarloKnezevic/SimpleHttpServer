@@ -1,0 +1,16 @@
+[$= "text/plain; charset=UTF-8" @setMimeType $]SimpleHttpServer Invoice Preview
+Generated from /scripts/invoice.smscr
+
+[$= "invoiceNo" "INV-2026-001" @paramGet "invoiceNo" @tparamSet $][$= "customer" "Acme Corporation" @paramGet "customer" @tparamSet $][$= "item" "Cloud Operations Retainer" @paramGet "item" @tparamSet $][$= "qty" "3" @paramGet "qty" @tparamSet $][$= "unitPrice" "149.90" @paramGet "unitPrice" @tparamSet $][$= "discountPct" "10" @paramGet "discountPct" @tparamSet $][$= "taxPct" "25" @paramGet "taxPct" @tparamSet $]Invoice #: [$= "invoiceNo" "-" @tparamGet $]
+Customer : [$= "customer" "-" @tparamGet $]
+Item     : [$= "item" "-" @tparamGet $]
+Quantity : [$= "qty" "0" @tparamGet $]
+Unit     : [$= "unitPrice" "0" @tparamGet "0.00" @decfmt $]
+
+[$= "qty" "0" @tparamGet "unitPrice" "0" @tparamGet * "subtotal" @tparamSet $][$= "subtotal" "0" @tparamGet "discountPct" "0" @tparamGet * 100 / "discountValue" @tparamSet $][$= "subtotal" "0" @tparamGet "discountValue" "0" @tparamGet - "afterDiscount" @tparamSet $][$= "afterDiscount" "0" @tparamGet "taxPct" "0" @tparamGet * 100 / "taxValue" @tparamSet $][$= "afterDiscount" "0" @tparamGet "taxValue" "0" @tparamGet + "total" @tparamSet $]------------------------------------------------------------
+Subtotal       : [$= "subtotal" "0" @tparamGet "0.00" @decfmt $]
+Discount pct   : [$= "discountPct" "0" @tparamGet $]
+Discount value : [$= "discountValue" "0" @tparamGet "0.00" @decfmt $]
+Tax pct        : [$= "taxPct" "0" @tparamGet $]
+Tax value      : [$= "taxValue" "0" @tparamGet "0.00" @decfmt $]
+TOTAL          : [$= "total" "0" @tparamGet "0.00" @decfmt $]

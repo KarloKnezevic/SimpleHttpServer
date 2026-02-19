@@ -1,0 +1,19 @@
+[$= "text/html; charset=UTF-8" @setMimeType $][$= "ticketViews" "1" @pparamGet @dup 1 + "ticketViews" @pparamSet "sessionViews" @tparamSet $][$= "ticket" "SUP-0000" @paramGet "ticket" @tparamSet $][$= "priority" "Normal" @paramGet "priority" @tparamSet $][$= "owner" "Unassigned" @paramGet "owner" @tparamSet $][$= "status" "Open" @paramGet "status" @tparamSet $]<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Support Ticket</title>
+</head>
+<body style="font-family: 'Space Grotesk', sans-serif; background:#f4f8fb; margin:0; padding:20px;">
+  <div style="max-width:640px; margin:0 auto; background:#fff; border:1px solid #dce8f2; border-radius:12px; padding:20px;">
+    <h1 style="margin-top:0; color:#0f506a;">Ticket Overview</h1>
+    <p><strong>Ticket:</strong> [$= "ticket" "-" @tparamGet $]</p>
+    <p><strong>Priority:</strong> [$= "priority" "-" @tparamGet $]</p>
+    <p><strong>Owner Team:</strong> [$= "owner" "-" @tparamGet $]</p>
+    <p><strong>Status:</strong> [$= "status" "-" @tparamGet $]</p>
+    <p><strong>Views in this session:</strong> [$= "sessionViews" "1" @tparamGet $]</p>
+    <p><a href="/">Back to index</a></p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,2 @@
+[$= "text/plain; charset=UTF-8" @setMimeType $]First 20 Fibonacci numbers:
+[$= "0" "a" @tparamSet "1" "b" @tparamSet "0\n1\n" $][$FOR i 3 20 1$][$= "b" "0" @tparamGet @dup "a" "0" @tparamGet + "b" @tparamSet "a" @tparamSet "b" "0" @tparamGet "\n"$][$END$]

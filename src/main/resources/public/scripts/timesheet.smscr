@@ -1,0 +1,15 @@
+[$= "text/plain; charset=UTF-8" @setMimeType $]Weekly Timesheet Summary
+Generated from /scripts/timesheet.smscr
+
+[$= "consultant" "Ana Kovac" @paramGet "consultant" @tparamSet $][$= "project" "API Stabilization" @paramGet "project" @tparamSet $][$= "billableHours" "40" @paramGet "billableHours" @tparamSet $][$= "hourlyRate" "90" @paramGet "hourlyRate" @tparamSet $][$= "overheadPct" "5" @paramGet "overheadPct" @tparamSet $]Consultant : [$= "consultant" "-" @tparamGet $]
+Project    : [$= "project" "-" @tparamGet $]
+Hours      : [$= "billableHours" "0" @tparamGet "0.00" @decfmt $]
+Rate       : [$= "hourlyRate" "0" @tparamGet "0.00" @decfmt $]
+
+[$= "billableHours" "0" @tparamGet "hourlyRate" "0" @tparamGet * "base" @tparamSet $][$= "base" "0" @tparamGet "overheadPct" "0" @tparamGet * 100 / "overhead" @tparamSet $][$= "base" "0" @tparamGet "overhead" "0" @tparamGet + "total" @tparamSet $][$= "billableHours" "0" @tparamGet 5 / "hoursPerDay" @tparamSet $]Estimated Daily Split (Mon-Fri):
+[$ FOR d 1 5 1 $]- Day [$= d $]: [$= "hoursPerDay" "0" @tparamGet "0.00" @decfmt $] hours
+[$END$]------------------------------------------------------------
+Base amount  : [$= "base" "0" @tparamGet "0.00" @decfmt $]
+Overhead pct : [$= "overheadPct" "0" @tparamGet $]
+Overhead fee : [$= "overhead" "0" @tparamGet "0.00" @decfmt $]
+Total amount : [$= "total" "0" @tparamGet "0.00" @decfmt $]

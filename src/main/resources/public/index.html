@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SimpleHttpServer Playground</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="bg-orb orb-a" aria-hidden="true"></div>
+  <div class="bg-orb orb-b" aria-hidden="true"></div>
+
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">Educational Runtime Playground</p>
+      <h1>SimpleHttpServer</h1>
+      <p class="lead">
+        A from-scratch Java HTTP server that demonstrates parsing, routing, static serving,
+        templating, and a custom script runtime (<code>.smscr</code>).
+      </p>
+      <div class="pill-row">
+        <span class="pill">HTTP 1.1 Parsing</span>
+        <span class="pill">Route Matching</span>
+        <span class="pill">Session Cookies</span>
+        <span class="pill">Script Engine</span>
+      </div>
+    </header>
+
+    <section>
+      <h2>Core HTTP Routes</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Hello Route</h3>
+          <p>Minimal route handler returning plain text.</p>
+          <a href="/hello">GET /hello</a>
+        </article>
+
+        <article class="card">
+          <h3>Echo Route</h3>
+          <p>Shows query parsing and JSON response building.</p>
+          <a href="/echo?x=1&x=2&name=Alice">GET /echo?x=1&amp;x=2&amp;name=Alice</a>
+        </article>
+
+        <article class="card">
+          <h3>Template Route</h3>
+          <p>Renders HTML and tracks session visits.</p>
+          <a href="/template?name=Alice">GET /template?name=Alice</a>
+        </article>
+
+        <article class="card">
+          <h3>Path Params</h3>
+          <p>Demonstrates parameterized URL matching.</p>
+          <a href="/users/42">GET /users/42</a>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Real-World Script Demos (<code>.smscr</code>)</h2>
+      <div class="card-grid">
+        <article class="card card-script">
+          <h3>Invoice Generator</h3>
+          <p>Calculates subtotal, discount, tax, and grand total from query params.</p>
+          <a href="/scripts/invoice.smscr?invoiceNo=INV-2026-014&customer=Northwind%20Labs&item=Managed%20Hosting&qty=8&unitPrice=129.90&discountPct=12&taxPct=25">GET /scripts/invoice.smscr</a>
+        </article>
+
+        <article class="card card-script">
+          <h3>Campaign KPI Report</h3>
+          <p>Computes CTR, conversion rate, CPC, and CPA from campaign metrics.</p>
+          <a href="/scripts/campaign-report.smscr?campaign=Spring%20Launch&impressions=82500&clicks=4120&conversions=386&spend=7230.50">GET /scripts/campaign-report.smscr</a>
+        </article>
+
+        <article class="card card-script">
+          <h3>Timesheet Summary</h3>
+          <p>Estimates project billing and prints a weekly breakdown using a FOR loop.</p>
+          <a href="/scripts/timesheet.smscr?consultant=Ana%20Kovac&project=API%20Stabilization&billableHours=42&hourlyRate=95&overheadPct=7">GET /scripts/timesheet.smscr</a>
+        </article>
+
+        <article class="card card-script">
+          <h3>Support Ticket View</h3>
+          <p>Returns HTML and tracks per-session ticket open count via persistent params.</p>
+          <a href="/scripts/support-ticket.smscr?ticket=SUP-8841&priority=High&owner=Platform%20Team&status=Investigating">GET /scripts/support-ticket.smscr</a>
+        </article>
+
+        <article class="card card-script">
+          <h3>Mock API Health</h3>
+          <p>Returns JSON and increments a session-scoped request counter.</p>
+          <a href="/scripts/api-health.smscr?service=orders-api&tenant=beta">GET /scripts/api-health.smscr</a>
+        </article>
+
+        <article class="card card-script">
+          <h3>Legacy Examples</h3>
+          <p>Original educational scripts kept for continuity.</p>
+          <a href="/scripts/basic.smscr">GET /scripts/basic.smscr</a>
+          <a href="/scripts/fibonacci.smscr">GET /scripts/fibonacci.smscr</a>
+          <a href="/scripts/callcount.smscr">GET /scripts/callcount.smscr</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="terminal">
+      <h2>Try with curl</h2>
+      <pre><code>curl -i http://127.0.0.1:5721/hello
+curl -i "http://127.0.0.1:5721/echo?x=1&x=2&name=Alice"
+curl -i "http://127.0.0.1:5721/scripts/invoice.smscr?invoiceNo=INV-1&customer=Acme&item=DevOps&qty=4&unitPrice=120&discountPct=10&taxPct=25"
+curl -i "http://127.0.0.1:5721/scripts/campaign-report.smscr?campaign=Q2&impressions=50000&clicks=2400&conversions=180&spend=4100"
+curl -i "http://127.0.0.1:5721/scripts/support-ticket.smscr?ticket=SUP-999&priority=Critical&owner=SRE&status=Open"</code></pre>
+    </section>
+  </main>
+</body>
+</html>

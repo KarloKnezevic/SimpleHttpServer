@@ -1,0 +1,14 @@
+[$= "text/plain; charset=UTF-8" @setMimeType $]Campaign KPI Report
+Generated from /scripts/campaign-report.smscr
+
+[$= "campaign" "Spring Launch" @paramGet "campaign" @tparamSet $][$= "impressions" "10000" @paramGet "impressions" @tparamSet $][$= "clicks" "450" @paramGet "clicks" @tparamSet $][$= "conversions" "55" @paramGet "conversions" @tparamSet $][$= "spend" "1750.00" @paramGet "spend" @tparamSet $]Campaign    : [$= "campaign" "-" @tparamGet $]
+Impressions : [$= "impressions" "0" @tparamGet $]
+Clicks      : [$= "clicks" "0" @tparamGet $]
+Conversions : [$= "conversions" "0" @tparamGet $]
+Spend       : [$= "spend" "0" @tparamGet "0.00" @decfmt $]
+
+[$= "clicks" "0" @tparamGet 100 * "impressions" "1" @tparamGet / "ctr" @tparamSet $][$= "conversions" "0" @tparamGet 100 * "clicks" "1" @tparamGet / "cvr" @tparamSet $][$= "spend" "0" @tparamGet "clicks" "1" @tparamGet / "cpc" @tparamSet $][$= "spend" "0" @tparamGet "conversions" "1" @tparamGet / "cpa" @tparamSet $]------------------------------------------------------------
+CTR (%)      : [$= "ctr" "0" @tparamGet "0.00" @decfmt $]
+Conv. Rate % : [$= "cvr" "0" @tparamGet "0.00" @decfmt $]
+CPC          : [$= "cpc" "0" @tparamGet "0.00" @decfmt $]
+CPA          : [$= "cpa" "0" @tparamGet "0.00" @decfmt $]

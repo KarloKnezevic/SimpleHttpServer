@@ -1,0 +1,2 @@
+[$= "text/plain; charset=UTF-8" @setMimeType $]This document was called this many times in your session:
+[$= "callCount" "1" @pparamGet @dup 1 + "callCount" @pparamSet $]

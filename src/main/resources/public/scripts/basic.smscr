@@ -1,0 +1,5 @@
+This is sample script output.
+[$ FOR i 1 5 1 $]
+Iteration [$= i $]
+[$END$]
+Sum check (2 + 3): [$= 2 3 + $]

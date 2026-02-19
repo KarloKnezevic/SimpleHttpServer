@@ -1,0 +1,6 @@
+[$= "application/json; charset=UTF-8" @setMimeType $]{
+  "service": "[$= "service" "orders-api" @paramGet $]",
+  "tenant": "[$= "tenant" "default" @paramGet $]",
+  "status": "ok",
+  "session_request_count": "[$= "apiRequests" "1" @pparamGet @dup 1 + "apiRequests" @pparamSet $]"
+}
